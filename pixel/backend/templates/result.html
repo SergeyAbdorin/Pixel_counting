@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Pixel{% endblock %}
+{% block header %} {% endblock %}
+{% block content %}
+{% load user_filters %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+
+   <div class="row justify-content-center">
+    <div class="col-md-8 p-5"> 
+        <div class="card mb-3 mt-1 shadow-sm" style="width: 100%;">
+            {% load thumbnail %}
+            {% thumbnail image.image "960x339" crop='center' upscale=True as im %}
+                    <img class="card-img" src="{{ im.url }}">
+            {% endthumbnail %}
+            
+            <div class="card-body">
+                <p class="card-text"><h3> Результат обработки изображения:</h3>
+                
+                    {% if compare == "black" %}
+                        На данном изображении <b>черных</b> пикселей больше чем белых.
+                    {% endif %}
+                    {% if compare == "white" %}
+                        На данном изображении <b>белых</b> пикселей больше чем черных.
+                    {% endif %}
+                    {% if compare == "equal" %}
+                        На данном изображении количество черных и белых пикселей <b>одинаковое</b>.
+                    {% endif %}
+                    <br />
+                    {% if color %}
+                        Пикселей цвета <b>{{ color }}</b> - <b>{{ count|intcomma }}</b>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">Для проверки своего цвета, введите его HEX код.</div>
+            <div class="card-body">
+                <form method="GET">
+
+                    {{ form|crispy }}
+
+                    <div class="col-md-6 offset-md-4">              
+                        <button type="submit" name="button" class="btn btn-primary">
+                            Проверить
+                        </button>
+                    </div>
+                </form>
+            </div> <!-- card body -->
+        </div> <!-- card -->
+        
+   </div> <!-- col -->
+</div> <!-- row --> 
+
+{% endblock %}
