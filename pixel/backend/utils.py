@@ -6,11 +6,17 @@ from .models import ImageModel, PixelCount
 
 
 def pixel_count_add(image_id):
+    """Counts the number of pixels of all colors
+        and creates an object in the PixelCount
+    Args:
+        image_id {integer}: image id from backend.ImageModel
+    """
     image = get_object_or_404(ImageModel, id=image_id)
     img = Image.open(image.image).convert("RGB")
     img = np.array(img)
 
     def rgb_to_hex(inarray):
+        """Reformat RGB to HEX"""       
         return '#%02x%02x%02x' % (inarray[0], inarray[1], inarray[2])
 
     colors, counts = np.unique(img.reshape(-1, 3), axis=0, return_counts=1)

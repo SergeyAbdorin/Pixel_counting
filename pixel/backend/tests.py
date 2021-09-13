@@ -8,8 +8,8 @@ from .models import ImageModel, PixelCount
 
 
 class TestBackend(TestCase):
-    """Тест доступности главной страницы \
-        и 404 ошибку на еще не существующей '/result/1'"""
+    """Homepage accessibility test
+        and 404 errors on a not yet existing '/result/1'"""
     def setUp(self):
         self.client = Client()
 
@@ -27,8 +27,8 @@ class TestBackend(TestCase):
 
 @override_settings(MEDIA_ROOT=tempfile.mkdtemp())
 class TestUploadImage(TestCase):
-    """Тест загрузки изображения \
-        и последующего добавления записей в модели ImageModel и PixelCount"""
+    """Image upload test \
+        and then adding records to the ImageModel and PixelCount"""
     def setUp(self):
         self.client = Client()
         self.img = self.create_image()
@@ -59,7 +59,7 @@ class TestUploadImage(TestCase):
 
 @override_settings(MEDIA_ROOT=tempfile.mkdtemp())
 class TestPixelCount(TestCase):
-    """Тест обработки изображения"""
+    """Image processing test"""
     @staticmethod
     def create_image():
         with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as f:

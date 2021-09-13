@@ -2,6 +2,16 @@ from django.db import models
 
 
 class ImageModel(models.Model):
+    """
+        All uploaded images from index page
+    
+        Attributes:
+            image       -   ImageFiled
+
+            upload_date -   dateField
+
+    """
+
     image = models.ImageField(upload_to='images/', blank=False, null=False)
     upload_date = models.DateTimeField("upload date", auto_now_add=True)
 
@@ -14,6 +24,17 @@ class ImageModel(models.Model):
 
 
 class PixelCount(models.Model):
+    """
+        Count pixels of all colors in the image from ImageModel
+
+    Atributes:
+        image           -   ImageModel object
+
+        black_or_white  -   predominantly black or white
+
+        hex_colors      -   all colors counts as JsonField
+    """
+
     image = models.ForeignKey(
         ImageModel,
         on_delete=models.CASCADE,
