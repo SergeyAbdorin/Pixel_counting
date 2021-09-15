@@ -4,7 +4,7 @@ from django.db import models
 class ImageModel(models.Model):
     """
         All uploaded images from index page
-    
+
         Attributes:
             image       -   ImageFiled
 

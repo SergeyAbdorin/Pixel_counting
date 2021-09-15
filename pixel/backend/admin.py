@@ -4,7 +4,7 @@ from .models import ImageModel, PixelCount
 
 
 class ImageModelAdmin(admin.ModelAdmin):
-    list_display = ("image", "upload_date")
+    list_display = ("image", "id", "upload_date")
     search_fields = ("upload_date",)
     list_filter = ("upload_date",)
     empty_value_display = "-пусто-"

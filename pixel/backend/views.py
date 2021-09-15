@@ -8,7 +8,7 @@ from .utils import pixel_count_add
 
 
 def index(request):
-    """Index page for upload images"""    
+    """Index page for upload images"""
     form = ImageForm(request.POST or None, files=request.FILES or None)
     context = {
         "form": form

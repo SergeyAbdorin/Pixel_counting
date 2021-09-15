@@ -16,7 +16,7 @@ def pixel_count_add(image_id):
     img = np.array(img)
 
     def rgb_to_hex(inarray):
-        """Reformat RGB to HEX"""       
+        """Reformat RGB to HEX"""
         return '#%02x%02x%02x' % (inarray[0], inarray[1], inarray[2])
 
     colors, counts = np.unique(img.reshape(-1, 3), axis=0, return_counts=1)
