@@ -1,11 +1,11 @@
 FROM python:3.9.6
 
-RUN mkdir /code
+WORKDIR /app
 
-COPY requirements.txt /code
+COPY requirements.txt ./
 
-RUN pip install --disable-pip-version-check -r /code/requirements.txt
+RUN pip install --disable-pip-version-check -r requirements.txt
 
-COPY . /code
+COPY pixel/ ./
 
-CMD python /code/pixel/manage.py runserver 0:8000 
+EXPOSE 80
