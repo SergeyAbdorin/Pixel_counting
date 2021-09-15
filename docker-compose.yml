@@ -3,9 +3,7 @@ version: '3.8'
 services:
 
   web:
-    build:
-      context: .
-    image: sergeyabdorin/pixel_counting
+    build: .
     command: python pixel/manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
