@@ -15,7 +15,7 @@
 
 При первом запуске для функционирования проекта обязательно выполнить миграции:
 
-```docker-compsoe exec web python manage.py migrate```
+```docker-compsoe exec web python pixel/manage.py migrate```
 
 ## Автор
 
