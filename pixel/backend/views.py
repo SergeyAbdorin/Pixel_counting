@@ -1,6 +1,4 @@
-import re
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
 
 from .forms import ImageForm, ColorForm
 from .models import ImageModel, PixelCount
