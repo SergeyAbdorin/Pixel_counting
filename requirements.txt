@@ -5,3 +5,4 @@ numpy==1.21.2
 sorl-thumbnail==12.7.0
 docutils==0.17.1
 Sphinx==4.2.0
+python-json-logger==2.0.2
